@@ -3,9 +3,7 @@ Title:      Matlab code for "Phase-space deconvolution for light field microscop
 Author:     Zhi Lu (luz18@mails.tsinghua.edu.cn),  Jiamin Wu, Hui Qiao and You Zhou .etc  
 Version:    1.0 
 Copyright:  2019, Zhi Lu,  Jiamin Wu, Hui Qiao, You Zhou, Tao Yan, Zijing Zhou, Xu Zhang, Jingtao Fan, Qionghai Dai*
-
 Edited based on the reference [1].
-
 
 Matlab code for "Phase-space deconvolution for light field microscopy"
 ==========================================================
@@ -32,17 +30,13 @@ The code is tested in MATLAB 2018b(64bit) under the MS Windows 10 64bit version 
 ----------------
 User specified parameter:
 ----------------
-There are a few parameters need to be specified by users.
----------------
 Main.m file:
----------------
-'RL_deconv': the old deconvolution method in LF microscopy (typically set as 1 and 0)
-'Phase_space_deconv': the new phase_space deconvolution method in our paper (typically set as 1 and 0)
----------------
+a).'RL_deconv': the old deconvolution method in LF microscopy (typically set as 1 and 0)
+b).'Phase_space_deconv': the new phase_space deconvolution method in our paper (typically set as 1 and 0)
+
 deconv_phase_space.m file:
----------------
-Nnum: the pixel number after every single micro lens
-maxIter: the maximum iteration times during deconbolution
+a). Nnum: the pixel number after every single micro lens
+b). maxIter: the maximum iteration times during deconbolution
 
 ----------------
 IMPORTANT NOTE 
