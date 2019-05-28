@@ -7,8 +7,7 @@ function Output=deconv_phase_space(LF)
 %
 % The Code is created based on the method described in the following paper 
 %        ZHI LU, JIAMIN WU, HUI QIAO and YOU ZHOU .etc,
-%        Phase-space deconvolution for light field microscopy
-%        Optics Express, 2019. 
+%        Phase-space deconvolution for light field microscopy.
 
 % Author: ZHI LU (luz18@mails.tsinghua.edu.cn)
 % Date  : 05/21/2019
@@ -22,32 +21,32 @@ IMGsize=size(H,1)-mod((size(H,1)-Nnum),2*Nnum);
 psf =zeros(IMGsize,IMGsize,Nnum,Nnum,size(H,5));
 for z=1:size(H,5)
  
-    sLF=zeros(IMGsize,IMGsize,Nnum,Nnum);
-    index1=round(size(H,1)/2)-fix(size(sLF,1)/2);
-    index2=round(size(H,1)/2)+fix(size(sLF,1)/2);
+    LFtmp=zeros(IMGsize,IMGsize,Nnum,Nnum);
+    index1=round(size(H,1)/2)-fix(size(LFtmp,1)/2);
+    index2=round(size(H,1)/2)+fix(size(LFtmp,1)/2);
     
     for ii=1:size(H,3)
         for jj=1:size(H,4)
-            sLF(:,:,ii,jj)=im_shift3(squeeze(H(index1:index2,index1:index2,ii,jj,z)),ii-((Nnum+1)/2), jj-(Nnum+1)/2);
+            LFtmp(:,:,ii,jj)=im_shift3(squeeze(H(index1:index2,index1:index2,ii,jj,z)),ii-((Nnum+1)/2), jj-(Nnum+1)/2);
         end
     end
     
-    multiWDF=zeros(Nnum,Nnum,size(sLF,1)/size(H,3),size(sLF,2)/size(H,4),Nnum,Nnum);
+    multiWDF=zeros(Nnum,Nnum,size(LFtmp,1)/size(H,3),size(LFtmp,2)/size(H,4),Nnum,Nnum);
     for i=1:size(H,3)
         for j=1:size(H,4)
-            for a=1:size(sLF,1)/size(H,3)
-                for b=1:size(sLF,2)/size(H,4)
-                    multiWDF(i,j,a,b,:,:)=squeeze(  sLF(  (a-1)*Nnum+i,(b-1)*Nnum+j,:,:  )  );
+            for a=1:size(LFtmp,1)/size(H,3)
+                for b=1:size(LFtmp,2)/size(H,4)
+                    multiWDF(i,j,a,b,:,:)=squeeze( LFtmp(  (a-1)*Nnum+i,(b-1)*Nnum+j,:,:  )  );
                 end
             end
         end
     end
     
-    WDF=zeros(  size(sLF,1),size(sLF,2),Nnum,Nnum  );
-    for a=1:size(sLF,1)/size(H,3)
+    WDF=zeros(  size(LFtmp,1),size(LFtmp,2),Nnum,Nnum  );
+    for a=1:size(LFtmp,1)/size(H,3)
         for c=1:Nnum
             x=Nnum*a+1-c;
-            for b=1:size(sLF,2)/size(H,4)
+            for b=1:size(LFtmp,2)/size(H,4)
                 for d=1:Nnum
                     y=Nnum*b+1-d;
                     WDF(x,y,:,:)=squeeze(multiWDF(:,:,a,b,c,d));
@@ -56,7 +55,6 @@ for z=1:size(H,5)
         end
     end
     psf(:,:,:,:,z)=WDF;   
-%     disp(['  depth = ',num2str(z),' | ',num2str(size(H,5)),' finished']);   
 end
 psf_t=zeros(size(psf));
 for ii=1:Nnum
