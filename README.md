@@ -9,7 +9,7 @@ Matlab code for "Phase-space deconvolution for light field microscopy"
 ==========================================================
 
 This package contains an implementation of the Phase-space deconvolution algorithm described in the paper: 
-Zhi Lu,  Jiamin Wu, Hui Qiao and You Zhou .etc, "Phase-space deconvolution for light field microscopy", OE 2019.
+Zhi Lu,  Jiamin Wu, Hui Qiao and You Zhou .etc, "Phase-space deconvolution for light field microscopy".
 
 Please cite our paper if using the code to generate data (e.g., images, tables of processing times, etc.) 
 in an academic publication.
@@ -26,7 +26,7 @@ The code is tested in MATLAB 2018b(64bit) under the MS Windows 10 64bit version 
 3. Run "main.m" to try the examples included in this package.
 4. Download the required data through "https://www.dropbox.com/sh/2iz04d2ifxurufk/AADwwOJDYi7T4Y6LvS5uQF66a?dl=0"
    a). The Lightfield Data referred to Fig.3 (the imaging of B16cell ) in our paper is saved in "Raw" which can be used for test. 
-   b). MAT file of the point spread function  is located in dir "PSF" which is captured by our LFM system. Readers can also obtain the similar PSFs by the origin code of reference[1];
+   b). MAT file of the point spread function  is located in dir "PSF". Readers can also obtain the similar PSFs by the origin code of reference[1];
 ----------------
 User specified parameter:
 ----------------
@@ -41,8 +41,6 @@ b). maxIter: the maximum iteration times during deconbolution
 ----------------
 IMPORTANT NOTE 
 ----------------
-Note that the algorithm sometimes may converge to an incorrect result. 
-When you obtain such an incorrect result, please re-try to increase the 'maxIter' parameter 
 Should you have any questions regarding this code and the corresponding results, please contact Zhi Lu (luz18@mails.tsinghua.edu.cn).
 
 Reference:
