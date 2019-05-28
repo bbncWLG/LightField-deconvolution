@@ -25,8 +25,9 @@ The code is tested in MATLAB 2018b(64bit) under the MS Windows 10 64bit version 
 1. unpack the package
 2. include code/subdirectory in your Matlab path
 3. Run "main.m" to try the examples included in this package.
-4. The Lightfield Data referred to Fig.3 (the imaging of B16cell ) in our paper is saved in "Raw" which can be used for test. 
-5. MAT file of the point spread function  is located in dir "PSF". Readers can also obtain the similar PSFs by the origin code of reference[1];
+4. Download the required data through "https://www.dropbox.com/sh/2iz04d2ifxurufk/AADwwOJDYi7T4Y6LvS5uQF66a?dl=0"
+   a). The Lightfield Data referred to Fig.3 (the imaging of B16cell ) in our paper is saved in "Raw" which can be used for test. 
+   b). MAT file of the point spread function  is located in dir "PSF". Readers can also obtain the similar PSFs by the origin code of reference[1];
 ----------------
 User specified parameter:
 ----------------
